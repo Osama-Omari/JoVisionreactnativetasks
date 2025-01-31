@@ -9,6 +9,7 @@ import Task19 from "./Tasks/Task19";
 import Task20 from "./Tasks/Task20";
 import Task21 from "./Tasks/Task21";
 import Task22 from "./Tasks/Task22";
+import Task23 from "./Tasks/Task23";
 
 const App= () => {
   return(
@@ -19,9 +20,8 @@ const App= () => {
     {/* <Task19></Task19>*/}
     {/* <Task20></Task20> */}
     {/* <Task21></Task21> */}
-    <SafeAreaView>
-      <Task22></Task22>
-    </SafeAreaView>
+    {/* <Task22></Task22> */}
+    <Task23></Task23>
     
     
     </View>
