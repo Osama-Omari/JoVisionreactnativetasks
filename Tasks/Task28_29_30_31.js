@@ -73,7 +73,7 @@ function Task28_29_30_31() {
     if (!isNaN(numIndex) && numIndex >= 0 && numIndex < images.length) {
       myref.current.scrollToIndex({ index: numIndex, animated: true });
     } else {
-      Alert.alert("Invalid index", "Please enter a valid index between 0 and 9.");
+      Alert.alert(`Invalid index", "Please enter a valid index between 0 & ${images.length-1}`);
     }
   }
                                     {/*Task 29  IMPORTANT NOTE*/}  
