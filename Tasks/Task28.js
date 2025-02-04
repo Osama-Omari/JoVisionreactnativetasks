@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { View, Text, Button, Image, Alert, StyleSheet, FlatList, Pressable, TextInput, Modal, Platform } from 'react-native';
 
 function Task28() {
-  const images = [
+  const [images,setImages] = useState([
     require('../Resources/image1.jpeg'),
     require('../Resources/image2.png'),
     require('../Resources/image3.jpeg'),
@@ -13,7 +13,22 @@ function Task28() {
     require('../Resources/image8.jpeg'),
     require('../Resources/image9.jpeg'),
     require('../Resources/image10.jpeg')
-  ];
+  ]);
+
+
+  function removeItem(index){
+    Alert.alert(
+      "Remove Image",
+      "Are you sure you want to remove the image?",
+      [
+        {text: "Cancel", style: "cancel"},
+        {text:"OK" , onPress: () =>{
+          const updatedImages = images.filter((_,i)=>i !== index);
+          setImages(updatedImages);
+        } }
+      ]
+    );
+  }
 
   const myref = useRef(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -29,10 +44,17 @@ function Task28() {
 
   function renderItem({ item, index }) {
     return (
+      <View style={styles.imageWrapper}>
       <Pressable onPress={() => handlePress(index)} style={styles.imageContainer}>
         <Image source={item} style={styles.image} />
       </Pressable>
+                              {/* Task 30  */}
+      <Pressable onPress={()=>removeItem(index)} style={styles.deleteButton}>
+        <Text style={styles.deleteText}>X</Text>
+      </Pressable>
+      </View>
     );
+    
   }
 
   function handleScroll(index) {
@@ -125,7 +147,28 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     width: 100,
     textAlign: 'center',
-  }
+  },
+  imageWrapper: {
+    position: 'relative',
+    marginHorizontal: 10,
+  },
+  deleteButton: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
+    backgroundColor: 'red',
+    borderRadius: 15,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  deleteText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
 });
 
 export default Task28;
