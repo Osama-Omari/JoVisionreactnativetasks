@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { View, Text, Button, Image, Alert, StyleSheet, FlatList, Pressable, TextInput, Modal, Platform } from 'react-native';
 
-function Task28() {
+function Task28_29_30_31() {
   const [images,setImages] = useState([
     require('../Resources/image1.jpeg'),
     require('../Resources/image2.png'),
@@ -15,7 +15,7 @@ function Task28() {
     require('../Resources/image10.jpeg')
   ]);
 
-
+  {/* Task 30 */}
   function removeItem(index){
     Alert.alert(
       "Remove Image",
@@ -41,6 +41,13 @@ function Task28() {
   function keyExtractor(_, index) {
     return `image-${index}`;
   }
+  {/* Task 31 */}
+  function repeatimage(index){
+    const newImage = images[index];
+    const updatedImages = [...images];
+    updatedImages.splice(index + 1, 0, newImage); 
+    setImages(updatedImages);
+  }
 
   function renderItem({ item, index }) {
     return (
@@ -51,6 +58,10 @@ function Task28() {
                               {/* Task 30  */}
       <Pressable onPress={()=>removeItem(index)} style={styles.deleteButton}>
         <Text style={styles.deleteText}>X</Text>
+      </Pressable>
+                              {/* Task 31 */}
+      <Pressable onPress={()=> repeatimage(index)} style={styles.repeatIconContainer} >
+        <Text style={styles.repeatIconText}>↻</Text>
       </Pressable>
       </View>
     );
@@ -168,7 +179,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  repeatIconContainer: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderRadius: 15,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  repeatIconText: {
+    color: 'white',
+    fontSize: 18,
+  },
 
 });
 
-export default Task28;
+export default Task28_29_30_31;
