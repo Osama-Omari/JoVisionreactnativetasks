@@ -1,5 +1,5 @@
 import React from "react";
-import { Text,StyleSheet,View,ScrollView} from "react-native";
+import { Text,StyleSheet,View,ScrollView,RefreshControl} from "react-native";
 
 
 
@@ -20,9 +20,24 @@ const randomWords = Array.from({ length: 100 }, function () {
 });
 
 function Task36 (){
+
+    const [refreshing, setRefreshing] = React.useState(false);
+
+    function handlRefresh(){
+        setRefreshing(true);
+        setTimeout(() => {
+        setRefreshing(false);
+        
+    },2000);
+}
+    const onRefresh = React.useCallback(handlRefresh, []);
+
     return(
         <View style = {styles.container}>
-            <ScrollView style= {styles.scrollView}>
+            <ScrollView style= {styles.scrollView}
+            refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={onRefresh}></RefreshControl>
+            }>
                 {randomWords.map((word,number)=>(
                     <Text key={number} style={styles.word}>
                         {number+1}. {word}
