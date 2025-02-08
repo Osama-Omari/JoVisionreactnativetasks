@@ -6,7 +6,7 @@ export async function saveData (data) {
     try{
     await AsyncStorage.setItem(mykey,JSON.stringify(data))
     }catch(e){
-        console.e("Error saving data:",e);
+        console.error("Error saving data:",e);
     }
 };
 
@@ -18,7 +18,7 @@ export async function getData (){
         return null;
 
     }catch(e){
-        console.e("Error getting data:",e);
+        console.error("Error getting data:",e);
         return null;
     }
 };
