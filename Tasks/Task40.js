@@ -1,24 +1,22 @@
 import React , {useState} from "react";
 import { View,Button, StyleSheet } from "react-native";
-import { Provider } from "react-redux";
-import ComponentOne from "../Components/ComponentOne-task39";
+import ComponentOneTask40 from "../Components/ComponentOne-task40";
 import store from "../Components/Store-39&40";
+import { Provider } from "react-redux";
 
-function Task39(){
+function Task40(){
     const [show , setShow] = useState(true);
-
     function handlebutton(){
         setShow(!show);
     }
     return(
         <Provider store={store}>
-            <View>
+            <View style={styles.container}>
                 <Button
                 title={show?'Hide Component':'Show Component'}
                 onPress={handlebutton}>
                 </Button>
-                {show && <ComponentOne></ComponentOne>}
-
+                {show && <ComponentOneTask40></ComponentOneTask40> }
             </View>
         </Provider>
     )
@@ -32,4 +30,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Task39;
+export default Task40;
