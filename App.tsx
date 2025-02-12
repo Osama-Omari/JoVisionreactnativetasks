@@ -21,6 +21,7 @@ import Task34 from "./Tasks/Task34";
 import Task35 from "./Tasks/Task35";
 import Task36 from "./Tasks/Task36";
 import Task38 from "./Tasks/Task38";
+import Task39 from "./Tasks/Task39";
 
 const App= () => {
   return(
@@ -38,12 +39,15 @@ const App= () => {
     {/* <Task26></Task26> */}
     {/* <Task27></Task27> */}
     {/* <Task28_29_30_31></Task28_29_30_31> */}
-    {/* <Task32></Task32>     */}
+    {/* <Task32></Task32> */}
     {/* <Task33></Task33> */}
     {/* <Task34></Task34> */}
     {/* <Task35></Task35> */}
     {/* <Task36></Task36> */}
-    <Task38></Task38>
+    {/* <Task38></Task38> */}
+    <Task39></Task39>
+
+    
     </View>
 
   )
