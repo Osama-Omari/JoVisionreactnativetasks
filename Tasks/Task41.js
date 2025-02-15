@@ -14,7 +14,7 @@ function Task41(){
 
     function CreateScreen(number){
 
-       return function ScreenComponent (props) { <Screens {...props} route={{ params: {number} }}></Screens>}
+       return function ScreenComponent (props) {  return <Screens {...props} route={{ params: { num: number} }}></Screens>}
     }
 
     function BottomTabs (){
